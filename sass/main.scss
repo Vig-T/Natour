@@ -9,6 +9,7 @@ Dark green: #28b485
 $color-primary-light: #7ed56f;
 $color-primary: #55c57a;
 $color-primary-dark: #28b485;
+$color-grey-light: #f7f7f7;
 $color-grey-dark: #777;
 $color-white: #fff;
 $color-black: #000;
@@ -25,10 +26,26 @@ $gutter-width: 114rem;
     }
 }
 
+// Utility Classes
+.u-center-text {
+    text-align: center;
+}
+
+.u-margin-bottom-sm {
+    margin-bottom: 1.4rem;
+}
+
+.u-margin-bottom-med {
+    margin-bottom: 4rem;
+}
+
+.u-margin-bottom-lg {
+    margin-bottom: 8rem;
+}
+
 // ! FLOAT LAYOUT
 .row {
     max-width: $gutter-width;
-    // background-color: #eee;
     margin: 0 auto;
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
@@ -36,7 +53,6 @@ $gutter-width: 114rem;
     // Select all columns
     [class^="col-"] {
         float: left;
-        background-color: orangered;
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
         }
@@ -153,6 +169,8 @@ body {
     }
 }
 
+// Header Ends
+// Typography starts
 .heading-primary {
     color: $color-white;
     text-transform: uppercase;
@@ -178,9 +196,44 @@ body {
     }
 }
 
+.heading-secondary {
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    background-image: linear-gradient( to right, $color-primary-light, $color-primary-dark);
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.2rem;
+    transition: all 0.4;
+    &:hover {
+        transform: skewY(2deg) skewX(13deg) scale(1.1);
+        text-shadow: 0.5rem 1rem 2rem rgba($color: $color-black, $alpha: 0.2);
+    }
+}
 
-/* Header ends */
+.heading-tertiary {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
 
+.paragraph {
+    font-size: 1.6rem;
+    &:not(:last-child) {
+        margin-bottom: 3rem;
+    }
+}
+
+// Typography ends
+// Section styles Starts
+.section-about {
+    background-color: $color-grey-light;
+    padding: 25rem 0;
+    margin-top: -20vh;
+}
+
+// Section styles ends
 
 /* Component starts */
 
@@ -229,5 +282,29 @@ body {
         &::after {
             background-color: $color-white;
         }
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $color-primary;
+        text-decoration: none;
+        display: inline-block;
+        border-bottom: 1px solid $color-primary;
+        transition: all 0.2s;
+        padding: 3px;
+    }
+    &:hover {
+        background-color: $color-primary;
+        color: $color-white;
+        box-shadow: 0 1rem 2rem rgba($color: $color-black, $alpha: 0.15);
+        transform: translateY(-2px);
+    }
+    &:active {
+        box-shadow: 0 0.5rem 1rem rgba($color: $color-black, $alpha: 0.15);
+        transform: translateY(0);
     }
 }
