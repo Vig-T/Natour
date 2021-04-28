@@ -233,6 +233,17 @@ body {
     margin-top: -20vh;
 }
 
+.section-features {
+    background-image: linear-gradient( to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8)), url("../image/nat-4.jpg");
+    background-size: cover;
+    padding: 20rem 0;
+    transform: skewY(-10deg);
+    margin-top: -16vh;
+    &>* {
+        transform: skewY(10deg);
+    }
+}
+
 // Section styles ends
 
 /* Component starts */
@@ -341,5 +352,26 @@ body {
     }
     &:hover &__photo:not(:hover) {
         transform: scale(0.95);
+    }
+}
+
+// Feature-Box
+.feature-box {
+    font-size: 1.3rem;
+    background-color: rgba($color: $color-white, $alpha: 0.7);
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 1.4rem 4rem rgba($color: $color-black, $alpha: 0.25);
+    transition: all 0.3s;
+    &__icon {
+        font-size: 6rem;
+        margin-top: 0.5rem;
+        background-image: linear-gradient( to right, $color-primary-light, $color-primary-dark);
+        background-clip: text;
+        color: transparent;
+    }
+    &:hover {
+        transform: translateY(-1.1rem) scale(1);
     }
 }
