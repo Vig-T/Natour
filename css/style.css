@@ -281,3 +281,27 @@ body {
     color: transparent; }
   .feature-box:hover {
     transform: translateY(-1.1rem) scale(1); }
+
+.card {
+  position: relative;
+  perspective: 150rem;
+  height: 50rem; }
+  .card__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    font-size: 2rem;
+    height: 50rem;
+    transition: all 0.8s;
+    width: 100%;
+    backface-visibility: hidden; }
+    .card__side--front {
+      background-color: #fff; }
+    .card__side--back {
+      background-color: darkgreen;
+      transform: rotateY(180deg); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0deg); }
