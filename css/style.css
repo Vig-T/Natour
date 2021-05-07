@@ -71,7 +71,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
 @keyframes moveLeft {
   0% {
     opacity: 0;
-    transform: translateX(-10rem); }
+    transform: translateX(-11rem); }
   80% {
     opacity: 1;
     transform: translateX(1rem); }

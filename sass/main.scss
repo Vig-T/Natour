@@ -34,7 +34,7 @@ $gutter-width: 114rem;
     }
 }
 
-// Mixin Files
+// Mixin File for responsiveness
 @import "sass/responsive";
 // Utility Classes
 .u-center-text {
@@ -100,10 +100,11 @@ $gutter-width: 114rem;
     @include clearfix();
 }
 
+// Animations
 @keyframes moveLeft {
     0% {
         opacity: 0;
-        transform: translateX(-10rem);
+        transform: translateX(-11rem);
     }
     80% {
         opacity: 1;
