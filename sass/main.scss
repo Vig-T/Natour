@@ -22,6 +22,7 @@ $color-white: #fff;
 $color-black: #000;
 // * Float Layout
 $gutter-vertical: 8rem;
+$gutter-vertical-small: 6rem;
 $gutter-horizontal: 6rem;
 $gutter-width: 114rem;
 // * Mixins
@@ -56,14 +57,26 @@ $gutter-width: 114rem;
 .row {
     max-width: $gutter-width;
     margin: 0 auto;
+    @include respond(tab-port) {
+        max-width: 50rem;
+        padding: 0 3rem;
+    }
     &:not(:last-child) {
         margin-bottom: $gutter-vertical;
+        @include respond(tab-port) {
+            margin-bottom: $gutter-vertical-small;
+        }
     }
     // Select all columns
     [class^="col-"] {
         float: left;
         &:not(:last-child) {
             margin-right: $gutter-horizontal;
+        }
+        @include respond(tab-port) {
+            width: 100% !important;
+            margin-right: 0;
+            margin-bottom: $gutter-vertical-small;
         }
     }
     .col-1-of-2 {
@@ -138,6 +151,17 @@ $gutter-width: 114rem;
 
 html {
     font-size: 62.5%;
+    @include respond(tab-land) {
+        // width < 1200?
+        font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
+    }
+    @include respond(tab-port) {
+        // width < 900?
+        font-size: 50%; //1 rem = 8px, 8/16 = 50%
+    }
+    @include respond(big-desktop) {
+        font-size: 75%; //1rem = 12, 12/16
+    }
 }
 
 body {
@@ -146,8 +170,11 @@ body {
     /* font-size: 16px; */
     line-height: 1.7;
     color: $color-grey-dark;
-    padding: 2rem;
+    padding: 3rem;
     box-sizing: border-box;
+    @include respond(tab-port) {
+        padding: 0;
+    }
 }
 
 
@@ -161,6 +188,9 @@ body {
     background-size: cover;
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    @include respond(phone) {
+        clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    }
     &__logo-box {
         position: absolute;
         top: 2rem;
@@ -193,6 +223,10 @@ body {
             letter-spacing: 3.5rem;
             animation-name: moveLeft;
             animation-duration: 1.4s;
+            @include respond(phone) {
+                font-size: 5rem;
+                letter-spacing: 1rem;
+            }
         }
         &--sub {
             display: block;
@@ -201,6 +235,9 @@ body {
             letter-spacing: 1.74rem;
             animation-name: moveRight;
             animation-duration: 1.4s;
+            @include respond(phone) {
+                letter-spacing: 0.5rem;
+            }
         }
     }
 }
@@ -215,6 +252,12 @@ body {
     color: transparent;
     letter-spacing: 0.2rem;
     transition: all 0.4;
+    @include respond(tab-port) {
+        font-size: 3rem;
+    }
+    @include respond(phone) {
+        font-size: 2.5rem;
+    }
     &:hover {
         transform: skewY(2deg) skewX(13deg) scale(1.1);
         text-shadow: 0.5rem 1rem 2rem rgba($color: $color-black, $alpha: 0.2);
@@ -715,6 +758,9 @@ body {
     background-color: $color-grey-dark-3;
     padding: 10rem 0;
     font-size: 1.4rem;
+    @include respond(tab-port) {
+        padding: 8rem 0;
+    }
     &__logo-box {
         text-align: center;
         margin-bottom: 8rem;
@@ -727,6 +773,10 @@ body {
         display: inline-block;
         border-top: 1px solid $color-grey-dark;
         padding: 2rem;
+        @include respond(tab-port) {
+            width: 100%;
+            text-align: center;
+        }
     }
     &__list {
         list-style: none;
@@ -760,6 +810,10 @@ body {
         padding: 2rem;
         width: 80%;
         float: right;
+        @include respond(tab-port) {
+            width: 100%;
+            float: none;
+        }
     }
 }
 
@@ -780,6 +834,14 @@ body {
         z-index: 2000;
         text-align: center;
         cursor: pointer;
+        @include respond(tab-port) {
+            top: 4rem;
+            right: 4rem;
+        }
+        @include respond(phone) {
+            top: 3rem;
+            right: 3rem;
+        }
     }
     &__background {
         height: 6rem;
@@ -792,6 +854,14 @@ body {
         z-index: 1000;
         // transform: scale(80);
         transition: all 0.8s cubic-bezier(0.86, 0, 0.07, 1);
+        @include respond(tab-port) {
+            top: 4.5rem;
+            right: 4.5rem;
+        }
+        @include respond(phone) {
+            top: 3.5rem;
+            right: 3.5rem;
+        }
     }
     &__nav {
         height: 100vh;
